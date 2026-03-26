@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>𝑷𝒂𝒏𝒆𝒍 𝑪𝒐𝒏𝒇𝒊𝒈 𝑻𝒓𝒖𝒏𝒈 𝑯𝒊𝒆𝒖👑</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=UnifrakturCook:wght@700&display=swap');
+
+:root {
+    --blood-red: #ff0044;
+    --neon-purple: #c300ff;
+    --dark-purple: #1a0022;
+    --void-black: #0a000f;
+    --glow-pink: #ff00aa;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a000f, #220022, #110011);
+    color: #ffccdd;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(195, 0, 255, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+    animation: horrorPulse 8s infinite alternate ease-in-out;
+}
+
+@keyframes horrorPulse {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+/* Container chính */
+.container {
+    width: 380px;
+    height: 620px;
+    margin: 20px auto;
+    background: var(--void-black);
+    border: 3px solid var(--blood-red);
+    border-radius: 18px;
+    box-shadow: 
+        0 0 40px var(--blood-red),
+        0 0 80px rgba(195, 0, 255, 0.6),
+        inset 0 0 30px rgba(255, 0, 68, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Header kinh dị */
+.header {
+    background: linear-gradient(to right, #330011, #110005);
+    padding: 14px;
+    text-align: center;
+    border-bottom: 3px solid var(--neon-purple);
+    box-shadow: 0 4px 20px rgba(255, 0, 68, 0.7);
+}
+
+.header h1 {
+    font-family: 'Creepster', cursive;
+    font-size: 26px;
+    color: #ff3366;
+    text-shadow: 
+        0 0 10px #ff00aa,
+        0 0 20px #c300ff,
+        3px 3px 0 #000;
+    letter-spacing: 2px;
+}
+
+/* Sidebar menu trái */
+.sidebar {
+    width: 110px;
+    background: rgba(20, 0, 30, 0.95);
+    border-right: 2px solid var(--blood-red);
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.tab {
+    padding: 16px 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: bold;
+    color: #ff99bb;
+    border-bottom: 1px solid #330022;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.tab:hover, .tab.active {
+    background: rgba(195, 0, 255, 0.25);
+    color: white;
+    text-shadow: 0 0 15px var(--neon-purple);
+    box-shadow: inset 0 0 15px rgba(255, 0, 68, 0.5);
+}
+
+.tab.active::after {
+    content: '👑';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+}
+
+/* Nội dung */
+.content {
+    flex: 1;
+    padding: 18px;
+    overflow-y: auto;
+    background: rgba(10, 0, 15, 0.85);
+}
+
+/* Option */
+.option {
+    background: rgba(40, 0, 50, 0.7);
+    border: 1px solid var(--neon-purple);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 12px 0;
+    box-shadow: 0 0 15px rgba(195, 0, 255, 0.4);
+    transition: all 0.3s;
+}
+
+.option:hover {
+    transform: translateX(6px);
+    box-shadow: 0 0 25px var(--blood-red);
+    border-color: var(--blood-red);
+}
+
+/* Toggle kinh dị */
+.toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #ffbbcc;
+}
+
+.switch {
+    position: relative;
+    width: 52px;
+    height: 28px;
+}
+
+.switch input { display: none; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #220011;
+    border: 2px solid #660022;
+    border-radius: 50px;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background: #ff3366;
+    border-radius: 50%;
+    transition: 0.4s;
+    box-shadow: 0 0 12px #ff0044;
+}
+
+input:checked + .slider {
+    background: linear-gradient(90deg, #c300ff, #ff0044);
+    border-color: var(--glow-pink);
+    box-shadow: 0 0 20px #ff00aa;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+    background: #fff;
+}
+
+/* Range */
+.range-box {
+    margin: 16px 0;
+}
+
+.range-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 15px;
+    color: #ff99cc;
+}
+
+.value {
+    color: #ffff66;
+    font-weight: bold;
+    text-shadow: 0 0 8px #ffff00;
+}
+
+input[type="range"] {
+    accent-color: #ff3366;
+    background: #330022;
+}
+
+/* Text đặc biệt */
+.big {
+    font-size: 22px;
+    text-align: center;
+    color: #ffdd44;
+    text-shadow: 0 0 20px #ffaa00;
+    margin: 25px 0;
+    font-weight: bold;
+}
+
+.note {
+    background: rgba(80, 0, 20, 0.6);
+    border: 2px solid #ff0044;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    color: #ffaaaa;
+    box-shadow: 0 0 20px rgba(255, 0, 68, 0.6);
+    margin: 20px 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(30, 0, 40, 0.8);
+    border: 2px solid var(--neon-purple);
+    border-radius: 12px;
+    margin-top: 20px;
+    color: #ffbbdd;
+    box-shadow: 0 0 25px rgba(195, 0, 255, 0.5);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>𝑷𝒂𝒏𝒆𝒍 𝑪𝒐𝒏𝒇𝒊𝒈 𝑻𝒓𝒖𝒏𝒈 𝑯𝒊𝒆𝒖👑</h1>
+    </div>
+
+    <div style="display: flex; height: calc(100% - 68px);">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="tab active" onclick="openTab('p1')">AIMLOCK</div>
+            <div class="tab" onclick="openTab('p2')">FIX VIP</div>
+            <div class="tab" onclick="openTab('p3')">DÍNH ĐẦU</div>
+            <div class="tab" onclick="openTab('p4')">TỐI ƯU</div>
+            <div class="tab" onclick="openTab('p5')">ĐỘ NHẠY</div>
+            <div class="tab" onclick="openTab('p6')">NÚT BẮN</div>
+            <div class="tab" onclick="openTab('p7')">LƯU Ý</div>
+            <div class="tab" onclick="openTab('p8')">SHOP</div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+
+            <!-- p1 AIMLOCK -->
+            <div id="p1" class="page">
+                <div class="option toggle">Aimlock 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Aimbot 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Aim cheats 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Aim neck 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Aim head locked 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Aim infinity 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+            </div>
+
+            <!-- p2 FIX VIP -->
+            <div id="p2" class="page" style="display:none;">
+                <div class="option toggle">Nhẹ tâm 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Fix Lố 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Fix Rung 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Giảm delay 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Giảm drop 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Tăng tốc wifi 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Nhạy màn 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+            </div>
+
+            <!-- p3 DÍNH ĐẦU -->
+            <div id="p3" class="page" style="display:none;">
+                <div class="option toggle">Vuốt tâm dính đầu 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Kéo nhẹ đầu 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Kéo ngang dễ vô đầu 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Kéo tâm siêu dính đầu 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Đẩy nhẹ nút bắn 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+            </div>
+
+            <!-- p4 TỐI ƯU -->
+            <div id="p4" class="page" style="display:none;">
+                <div class="option toggle">Đầm tâm 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Tâm ổn định 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Êm tâm 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+                <div class="option toggle">Ghìm tâm 👑 <label class="switch"><input type="checkbox"><span class="slider"></span></label></div>
+            </div>
+
+            <!-- p5 ĐỘ NHẠY -->
+            <div id="p5" class="page" style="display:none;">
+                <div class="range-box">
+                    <div class="range-label">Nhìn Xung Quanh <span id="v1" class="value">80</span></div>
+                    <input type="range" min="0" max="500" value="80" oninput="setVal('v1', this.value)">
+                </div>
+                <div class="range-box">
+                    <div class="range-label">Ống Ngắm Hồng Tâm <span id="v2" class="value">85</span></div>
+                    <input type="range" min="0" max="500" value="85" oninput="setVal('v2', this.value)">
+                </div>
+                <div class="range-box">
+                    <div class="range-label">Ống Ngắm 2x <span id="v3" class="value">75</span></div>
+                    <input type="range" min="0" max="500" value="75" oninput="setVal('v3', this.value)">
+                </div>
+                <div class="range-box">
+                    <div class="range-label">Ống Ngắm 4x <span id="v4" class="value">65</span></div>
+                    <input type="range" min="0" max="500" value="65" oninput="setVal('v4', this.value)">
+                </div>
+                <div class="range-box">
+                    <div class="range-label">Tăng Tác Dụng <span id="v5" class="value">90</span></div>
+                    <input type="range" min="0" max="500" value="90" oninput="setVal('v5', this.value)">
+                </div>
+            </div>
+
+            <!-- p6 NÚT BẮN -->
+            <div id="p6" class="page" style="display:none;">
+                <div class="big">NÚT BẮN NÊN ĐỂ<br>36 — 38 — 40</div>
+            </div>
+
+            <!-- p7 LƯU Ý -->
+            <div id="p7" class="page" style="display:none;">
+                <div class="note">
+                    Đây chỉ là config hỗ trợ kéo tâm.<br>
+                    Không phải hack thật.<br><br>
+                    Cần kỹ năng tay để phát huy tối đa.<br>
+                    <strong style="color:#ff3366;">Chơi fair – Tránh ban vĩnh viễn</strong>
+                </div>
+            </div>
+
+            <!-- p8 SHOP -->
+            <div id="p8" class="page" style="display:none;">
+                <div class="footer">
+                    <strong>SHOP 𝑻𝒓𝒖𝒏𝒈 𝑯𝒊𝒆𝒖 👑</strong><br><br>
+                    CONFIG SIÊU BÁ 🔥<br>
+                    ZALO: <strong>0376835602</strong><br>
+                    FB: Tr Hieu (Ryvexis)
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+function openTab(id) {
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    
+    document.getElementById(id).style.display = 'block';
+    
+    const tabs = document.querySelectorAll('.tab');
+    for (let tab of tabs) {
+        if (tab.getAttribute('onclick').includes(id)) {
+            tab.classList.add('active');
+            break;
+        }
+    }
+}
+
+function setVal(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = val;
+}
+</script>
+
+</body>
+</html>
